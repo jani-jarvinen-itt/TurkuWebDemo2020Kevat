@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "UusiSivu";
 }
 
@@ -7,9 +6,21 @@
 
 <p>Jee, toimii!</p>
 
-
 <input class="form-control w-25" type="text" />
 <button class="btn btn-info mt-2">Hae asiakas</button>
 
+<p>&nbsp;</p>
+
+@if (true)
+{
+    <ul>
+        @{
+            for (int i = 0; i < 10; i++)
+            {
+                <li>Asia @i</li>
+            }
+        }
+    </ul>
+}
 
 <img src="https://docs.microsoft.com/en-us/media/hubs/aspnet/core-overview-1.svg">
