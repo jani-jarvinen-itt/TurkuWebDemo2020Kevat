@@ -63,6 +63,9 @@ namespace AspNetWebDemo.Controllers
                 }
             };
 
+            ViewBag.NapinVäri = "danger";
+            ViewBag.NäytäLista = false;
+
             return View(asiakkaat);
         }
     }
