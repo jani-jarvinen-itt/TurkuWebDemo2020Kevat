@@ -41,7 +41,29 @@ namespace AspNetWebDemo.Controllers
 
         public IActionResult UusiSivu()
         {
-            return View();
+            List<Asiakas> asiakkaat = new List<Asiakas>()
+            {
+                new Asiakas()
+                {
+                    AsiakasId = 100,
+                    AsiakkaanNimi = "Yritys Oy",
+                    Sähköpostiosoite = "info@yritys.fi"
+                },
+                new Asiakas()
+                {
+                    AsiakasId = 101,
+                    AsiakkaanNimi = "Asiakas Oy",
+                    Sähköpostiosoite = "info@asiakas.fi"
+                },
+                new Asiakas()
+                {
+                    AsiakasId = 102,
+                    AsiakkaanNimi = "Testaus Oy",
+                    Sähköpostiosoite = "info@testaus.com"
+                }
+            };
+
+            return View(asiakkaat);
         }
     }
 }

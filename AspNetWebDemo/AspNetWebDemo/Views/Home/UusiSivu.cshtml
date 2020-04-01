@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<AspNetWebDemo.Models.Asiakas>
+@{
     ViewData["Title"] = "UusiSivu";
 }
 
@@ -11,7 +12,7 @@
 
 <p>&nbsp;</p>
 
-@if (true)
+@if (false)
 {
     <ul>
         @{
@@ -22,5 +23,25 @@
         }
     </ul>
 }
+
+<table class="table table-striped w-50">
+    <thead>
+        <tr>
+            <th>Asiakas-id</th>
+            <th>Nimi</th>
+            <th>Sähköposti</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (AspNetWebDemo.Models.Asiakas asiakas in Model)
+        {
+            <tr>
+                <td>@asiakas.AsiakasId</td>
+                <td>@asiakas.AsiakkaanNimi</td>
+                <td>@asiakas.Sähköpostiosoite</td>
+            </tr>
+        }
+    </tbody>
+</table>
 
 <img src="https://docs.microsoft.com/en-us/media/hubs/aspnet/core-overview-1.svg">
