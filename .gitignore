@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/AspNetWebDemo/.vs/AspNetWebDemo
+/AspNetWebDemo/AspNetWebDemo/bin/Debug/netcoreapp3.1
+/AspNetWebDemo/AspNetWebDemo/obj
