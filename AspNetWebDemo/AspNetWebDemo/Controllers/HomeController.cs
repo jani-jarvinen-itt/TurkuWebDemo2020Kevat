@@ -39,6 +39,11 @@ namespace AspNetWebDemo.Controllers
             return "Moro, täällä ollaan!";
         }
 
+        public string Kellonaika()
+        {
+            return DateTime.Now.ToString();
+        }
+
         public IActionResult UusiSivu()
         {
             List<Asiakas> asiakkaat = new List<Asiakas>()

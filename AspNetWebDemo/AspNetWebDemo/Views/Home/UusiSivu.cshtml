@@ -2,13 +2,25 @@
 @{
     ViewData["Title"] = "UusiSivu";
 }
+@section Scripts {
+    <script>
+        $(function () {
+            // sivun alustus
+            console.log("Sivun alustus.");
+
+            $("#haeAsiakasNappi").click(function () {
+                alert("Moi moi!");
+            });
+        });
+    </script>
+}
 
 <h1>Tämä on uusi sivu</h1>
 
 <p>Jee, toimii!</p>
 
 <input class="form-control w-25" type="text" />
-<button class="btn btn-@ViewBag.NapinVäri mt-2">Hae asiakas</button>
+<button id="haeAsiakasNappi" class="btn btn-@ViewBag.NapinVäri mt-2">Hae asiakas</button>
 
 <p>&nbsp;</p>
 
