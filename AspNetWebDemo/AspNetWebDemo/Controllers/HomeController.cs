@@ -38,5 +38,10 @@ namespace AspNetWebDemo.Controllers
         {
             return "Moro, täällä ollaan!";
         }
+
+        public IActionResult UusiSivu()
+        {
+            return View();
+        }
     }
 }
