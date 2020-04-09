@@ -21,6 +21,15 @@ namespace AspNetWebDemo.Controllers
 
         public IActionResult Index()
         {
+            // tavoite: etsi viittä suuremmat luvut ja tulosta numerojärjestykseen
+            int[] luvut = { 6, 8, 10, 4, 12, 9, 3, 5, 11, 2 };
+
+            // SQL: SELECT Luku FROM Luvut WHERE Luku > 5 ORDER BY Luku
+            var suuretLuvut = (from l in luvut       //   <-- LINQ-kysely
+                               where l > 5
+                               orderby l
+                               select l).ToList();
+
             return View();
         }
 
