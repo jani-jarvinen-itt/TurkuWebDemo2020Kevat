@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using AspNetWebDemo.Models;
+using AspNetWebDemo.Tietokanta;
 
 namespace AspNetWebDemo.Controllers
 {
@@ -70,6 +71,13 @@ namespace AspNetWebDemo.Controllers
 
             ViewBag.NapinVäri = "danger";
             ViewBag.NäytäLista = false;
+
+            return View(asiakkaat);
+        }
+
+        public IActionResult AsiakasListaus()
+        {
+            List<Customers> asiakkaat = new List<Customers>(); // ????
 
             return View(asiakkaat);
         }
