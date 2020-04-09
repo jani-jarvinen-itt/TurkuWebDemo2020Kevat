@@ -77,7 +77,8 @@ namespace AspNetWebDemo.Controllers
 
         public IActionResult AsiakasListaus()
         {
-            List<Customers> asiakkaat = new List<Customers>(); // ????
+            NorthwindContext konteksti = new NorthwindContext();
+            List<Customers> asiakkaat = konteksti.Customers.ToList();
 
             return View(asiakkaat);
         }
