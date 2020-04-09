@@ -31,7 +31,25 @@ namespace AspNetWebDemo.Controllers
                                select l).ToList();
 
             // varastoarvon laskenta
-            ViewBag.VarastoArvo = 987.65;
+            NorthwindContext konteksti = new NorthwindContext();
+            /*
+            decimal? varastoArvo = (from t in konteksti.Products
+                                    select t.UnitPrice * t.UnitsInStock).Sum();
+            */
+
+            decimal? varastoArvo = konteksti.Products.Select(t => t.UnitPrice * t.UnitsInStock).Sum();
+            ViewBag.VarastoArvo = varastoArvo ?? 0.0m;
+
+            /*
+            if (varastoArvo != null)
+            {
+                ViewBag.VarastoArvo = varastoArvo;
+            }
+            else
+            {
+                ViewBag.VarastoArvo = 0.0;
+            }
+            */
 
             return View();
         }
