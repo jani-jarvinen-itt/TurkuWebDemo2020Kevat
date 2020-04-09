@@ -30,6 +30,9 @@ namespace AspNetWebDemo.Controllers
                                orderby l
                                select l).ToList();
 
+            // varastoarvon laskenta
+            ViewBag.VarastoArvo = 987.65;
+
             return View();
         }
 
@@ -100,6 +103,13 @@ namespace AspNetWebDemo.Controllers
                              where a.Country == maa
                              select a).ToList();
             }
+
+            /*
+            var asiakkaat2 = konteksti.Customers.
+                Where(a => a.Country == "Finland").
+                OrderBy(a => a.ContactTitle).
+                Select(a => new { a.CompanyName, a.Country }).ToList();
+            */
 
             return View(asiakkaat);
         }
