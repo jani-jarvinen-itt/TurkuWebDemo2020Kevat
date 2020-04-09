@@ -87,9 +87,21 @@ namespace AspNetWebDemo.Controllers
         public IActionResult AsiakasListaus()
         {
             NorthwindContext konteksti = new NorthwindContext();
-            List<Customers> asiakkaat = konteksti.Customers.ToList();
+
+            // haetaan kaikki asiakkaat
+            // List<Customers> asiakkaat = konteksti.Customers.ToList();
+
+            // haetaan suomalaiset asiakkaat: LINQ-kyselysyntaksi
+            List<Customers> asiakkaat = (from a in konteksti.Customers
+                                         where a.Country == "Finland"
+                                         select a).ToList();
+
+            // sama kysely, mutta LINQ-metodisyntaksilla
+            List<Customers> asiakkaat2 = konteksti.Customers.Where(
+                a => a.Country == "Finland").ToList();
 
             return View(asiakkaat);
+            // return View(asiakkaat2);
         }
     }
 }
