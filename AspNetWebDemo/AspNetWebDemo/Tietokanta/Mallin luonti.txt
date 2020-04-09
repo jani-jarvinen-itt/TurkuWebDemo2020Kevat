@@ -1,0 +1,9 @@
+﻿Pakettien asentaminen Package Manager Consolissa:
+
+- Install-Package Microsoft.EntityFrameworkCore.Tools
+- Install-Package Microsoft.EntityFrameworkCore.SqlServer
+
+
+Mallin luonti scaffold-komennolla:
+
+Scaffold-DbContext "Server=localhost\SQLEXPRESS;Database=Northwind;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Tietokanta
