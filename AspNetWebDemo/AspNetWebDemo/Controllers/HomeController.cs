@@ -84,24 +84,24 @@ namespace AspNetWebDemo.Controllers
             return View(asiakkaat);
         }
 
-        public IActionResult AsiakasListaus()
+        public IActionResult AsiakasListaus(string id)
         {
             NorthwindContext konteksti = new NorthwindContext();
+            List<Customers> asiakkaat;
 
-            // haetaan kaikki asiakkaat
-            // List<Customers> asiakkaat = konteksti.Customers.ToList();
-
-            // haetaan suomalaiset asiakkaat: LINQ-kyselysyntaksi
-            List<Customers> asiakkaat = (from a in konteksti.Customers
-                                         where a.Country == "Finland"
-                                         select a).ToList();
-
-            // sama kysely, mutta LINQ-metodisyntaksilla
-            List<Customers> asiakkaat2 = konteksti.Customers.Where(
-                a => a.Country == "Finland").ToList();
+            if (string.IsNullOrEmpty(id))
+            {
+                asiakkaat = konteksti.Customers.ToList();
+            }
+            else
+            {
+                string maa = id;
+                asiakkaat = (from a in konteksti.Customers
+                             where a.Country == maa
+                             select a).ToList();
+            }
 
             return View(asiakkaat);
-            // return View(asiakkaat2);
         }
     }
 }
