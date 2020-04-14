@@ -29,6 +29,14 @@ namespace AspNetWebDemo.Controllers
         {
             NorthwindContext konteksti = new NorthwindContext();
             List<Customers> asiakkaat = konteksti.Customers.ToList();
+
+            /*
+            foreach (Customers asiakas in asiakkaat)
+            {
+                asiakas.Fax = "";
+            }
+            */
+
             return asiakkaat;
         }
     }
