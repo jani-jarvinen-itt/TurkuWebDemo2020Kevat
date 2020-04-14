@@ -7,13 +7,20 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AspNetWebDemo.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]")]   // attribuutti (attribute)
     [ApiController]
     public class TestiController : ControllerBase
     {
-        public string Get()
+        [Route("eka")]
+        public string Eka()
         {
             return "Hello, World!";
+        }
+
+        [Route("toka")]
+        public string Toka()
+        {
+            return "Tämä on toinen metodi.";
         }
     }
 }
