@@ -43,8 +43,9 @@ class AsiakasListaus extends React.Component<{}, AsiakasListaus_Tila> {
         }
 
         return <div>
+            <p> </p>
             <h2>Asiakaslista</h2>
-            <table>
+            <table className="table table-striped table-dark">
                 <thead>
                     <tr>
                         <th>Nimi</th>
