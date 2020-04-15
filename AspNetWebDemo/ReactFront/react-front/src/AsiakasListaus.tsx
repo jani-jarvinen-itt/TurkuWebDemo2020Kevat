@@ -6,8 +6,8 @@ interface AsiakasListaus_Tila {
 
 class AsiakasListaus extends React.Component<{}, AsiakasListaus_Tila> {
 
-    constructor() {
-        super({});
+    constructor(props: any) {
+        super(props);
 
         console.log("AsiakasLista.constructor()");
         this.state = { asiakkaat: [] };
@@ -26,7 +26,7 @@ class AsiakasListaus extends React.Component<{}, AsiakasListaus_Tila> {
 
                 console.log("AsiakasLista: Ennen tilan päivitystä");
                 this.setState({ asiakkaat: json });
-                console.log("AsiakasLista: Tila on päivitetty!");                
+                console.log("AsiakasLista: Tila on päivitetty!");
             });
     }
 
