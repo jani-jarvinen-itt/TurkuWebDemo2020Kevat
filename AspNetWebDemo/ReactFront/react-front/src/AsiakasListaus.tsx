@@ -1,10 +1,10 @@
 import React from 'react';
 
-interface AsiakasLista_Tila {
+interface AsiakasListaus_Tila {
     asiakkaat: any[];
 }
 
-class AsiakasLista extends React.Component<{}, AsiakasLista_Tila> {
+class AsiakasListaus extends React.Component<{}, AsiakasListaus_Tila> {
 
     constructor() {
         super({});
@@ -18,14 +18,14 @@ class AsiakasLista extends React.Component<{}, AsiakasLista_Tila> {
 
         console.log("AsiakasLista: aloitetaan Fetch-kutsu");
 
-        fetch('http://dummy.restapiexample.com/api/v1/employees')
+        fetch("https://localhost:44306/api/asiakkaat")
             .then(response => response.json())
             .then(json => {
                 console.log("AsiakasLista: Fetch-kutsu valmis");
                 console.log(json);
 
                 console.log("AsiakasLista: Ennen tilan päivitystä");
-                this.setState({ asiakkaat: json.data });
+                this.setState({ asiakkaat: json });
                 console.log("AsiakasLista: Tila on päivitetty!");                
             });
     }
@@ -37,18 +37,18 @@ class AsiakasLista extends React.Component<{}, AsiakasLista_Tila> {
         for (let index = 0; index < this.state.asiakkaat.length; index++) {
             const työntekijä = this.state.asiakkaat[index];
             rivit.push(<tr key={index}>
-                <td>{työntekijä.employee_name}</td>
-                <td>{työntekijä.employee_age}</td>
+                <td>{työntekijä.companyName}</td>
+                <td>{työntekijä.contactName}</td>
             </tr>);
         }
 
         return <div>
-            <h2>AsiakasLista</h2>
+            <h2>Asiakaslista</h2>
             <table>
                 <thead>
                     <tr>
                         <th>Nimi</th>
-                        <th>Ikä</th>
+                        <th>Yhteyshenkilö</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -59,4 +59,4 @@ class AsiakasLista extends React.Component<{}, AsiakasLista_Tila> {
     }
 }
 
-export default AsiakasLista;
+export default AsiakasListaus;
